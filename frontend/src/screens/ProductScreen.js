@@ -14,7 +14,7 @@ const ProductScreen = ({ match, history }) => {
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    if (product && match.params.id !== product._id) {
+    if ((!product) || (product && match.params.id !== product._id)) {
       dispatch(getProductDetails(match.params.id));
     }
   }, [dispatch, match, product]);
